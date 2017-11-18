@@ -1,10 +1,3 @@
-from decimal import *
-
-
-# проверка на отрицательное значение
-# проверка на число(не строка)
-# неверный формат числа (123.123.123)
-
 
 def format_price(price):
     try:
@@ -12,11 +5,11 @@ def format_price(price):
             price = float(price)
         if float(price) < 0:
             raise ValueError
-        if str(price).find('.') != -1:
+        if float(price).is_integer():
+            return '{:,.0f}'.format(price).replace(',', ' ')
+        else:
             price = str(price)[:str(price).find('.') + 3]
             return '{:,}'.format(float(price)).replace(',', ' ')
-        else:
-            return '{:,}'.format(price).replace(',', ' ')
     except ValueError:
         return None
 
