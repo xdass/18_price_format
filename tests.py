@@ -9,6 +9,9 @@ class PricetTest(unittest.TestCase):
     def test_with_decimal_point(self):
         self.assertEquals(fp.format_price(3245.000000), '3 245')
 
+    def test_decimal_point(self):
+        self.assertEqual(fp.format_price(9999.999), '9 999.99')
+
     def test_str_price(self):
         self.assertEquals(fp.format_price('daassda'), None)
 
