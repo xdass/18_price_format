@@ -17,3 +17,6 @@ class PricetTest(unittest.TestCase):
 
     def test_wrong_number(self):
         self.assertEquals(fp.format_price('123.123.123'), None)
+
+    def test_negative_number(self):
+        self.assertEqual(fp.format_price('-40000'), None)
